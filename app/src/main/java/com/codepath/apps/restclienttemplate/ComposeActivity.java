@@ -38,7 +38,10 @@ public class ComposeActivity extends AppCompatActivity {
 
         etUserTweet = (EditText) findViewById(R.id.etUserTweet);
 
-        tvCount = findViewById(R.id.tvCount);
+        tvCount = (TextView) findViewById(R.id.tvCount);
+
+        etUserTweet.addTextChangedListener(mTextEditorWatcher);
+
 
         // create client
         client = TwitterApp.getRestClient(this);
@@ -64,7 +67,7 @@ public class ComposeActivity extends AppCompatActivity {
             }
         };
 
-        tvCount.addTextChangedListener(mTextEditorWatcher);
+        //tvCount.addTextChangedListener(mTextEditorWatcher);
 
     }
 
@@ -85,10 +88,12 @@ public class ComposeActivity extends AppCompatActivity {
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             //This sets a textview to the current length
-            tvCount.setText(String.valueOf(s.length()));
+            tvCount.setText(String.valueOf(s.length())+ "/140 characters");
+
         }
 
         public void afterTextChanged(Editable s) {
         }
     };
+
 }

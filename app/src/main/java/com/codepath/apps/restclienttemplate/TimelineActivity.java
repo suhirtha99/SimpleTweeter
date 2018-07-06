@@ -2,15 +2,12 @@ package com.codepath.apps.restclienttemplate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -49,26 +46,28 @@ public class TimelineActivity extends AppCompatActivity {
         // set the adapter
         rvTweets.setAdapter(tweetAdapter);
 
+
         // setting custom bar
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
-        LayoutInflater inflater = LayoutInflater.from(this);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayShowTitleEnabled(true);
+//        LayoutInflater inflater = LayoutInflater.from(this);
+//
+//
+//        View mCustomView = inflater.inflate(R.layout.custom_actionbar, null);
+//        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
+//        mTitleTextView.setText("Home");
+//
+//
+//        ImageButton bCompose = (ImageButton) mCustomView
+//                .findViewById(R.id.bTweet);
 
-        View mCustomView = inflater.inflate(R.layout.custom_actionbar, null);
-        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
-        mTitleTextView.setText("Home");
+//        actionBar.setCustomView(mCustomView);
+//        actionBar.setDisplayShowCustomEnabled(true);
 
-        ImageButton bCompose = (ImageButton) mCustomView
-                .findViewById(R.id.bTweet);
-
-        actionBar.setCustomView(mCustomView);
-        actionBar.setDisplayShowCustomEnabled(true);
-
-        populateTime();
+        populateTimeLine();
     }
 
-    private void populateTime() {
+    private void populateTimeLine() {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -115,7 +114,7 @@ public class TimelineActivity extends AppCompatActivity {
         });
     }
 
-    public void composeTweet(View v) {
+    public void composeTweet(MenuItem mi) {
         Intent i = new Intent(this, ComposeActivity.class);
         startActivityForResult(i, 0);
     }
@@ -127,5 +126,12 @@ public class TimelineActivity extends AppCompatActivity {
         tweets.add(0, tweet);
         tweetAdapter.notifyItemInserted(0);
         rvTweets.scrollToPosition(0);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_menu, menu);
+        return true;
     }
 }
