@@ -15,7 +15,7 @@ public class Tweet {
     public String handleName;
 
     // deserialize the JSON
-    public static Tweet fromJSON(JSONObject jsonObject) throws JSONException{
+    public static Tweet fromJson(JSONObject jsonObject) throws JSONException{
         Tweet tweet = new Tweet();
 
         // extract the values from JSON
@@ -23,6 +23,7 @@ public class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createAt = jsonObject.getString("created_at");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+        //Log.d("Image", jsonObject.getString("media_url"));
         tweet.handleName = tweet.user.screenName;
         return tweet;
     }

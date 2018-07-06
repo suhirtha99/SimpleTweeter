@@ -49,7 +49,7 @@ public class ComposeActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    tweet = Tweet.fromJSON(response);
+                    tweet = Tweet.fromJson(response);
                     Log.d("Tweet", "This is the message " + response.getString("text"));
                     Intent i = new Intent(ComposeActivity.this, TimelineActivity.class);
                     i.putExtra("tweet", Parcels.wrap(tweet));
