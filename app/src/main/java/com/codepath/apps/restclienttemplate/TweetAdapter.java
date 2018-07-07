@@ -45,19 +45,31 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // get the data according to position
-        Tweet tweet = mTweets.get(position);
+        final Tweet tweet = mTweets.get(position);
 
         // populate the views according to this data
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         String date = getRelativeTimeAgo(tweet.createAt);
-        holder.tvTimestamp.setText(date);
+         holder.tvTimestamp.setText(date);
         holder.tvHandleName.setText("@" + tweet.handleName);
 
         GlideApp.with(context)
                 .load(tweet.user.profileImageUrl)
                 .transform(new RoundedCornersTransformation(75, 0))
                 .into(holder.ivProfileImage);
+/*
+        holder.ivProfileImage.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, UserInfoActivity.class);
+                i.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
+                context.startActivity(i);
+            }
+        });
+
+        */
     }
 
     @Override
@@ -116,5 +128,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         mTweets.addAll(list);
         notifyDataSetChanged();
     }
+
 
 }

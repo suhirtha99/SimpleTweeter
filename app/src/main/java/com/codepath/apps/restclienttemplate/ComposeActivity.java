@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -67,7 +68,8 @@ public class ComposeActivity extends AppCompatActivity {
             }
         };
 
-        //tvCount.addTextChangedListener(mTextEditorWatcher);
+
+        showEditDialog();
 
     }
 
@@ -95,5 +97,13 @@ public class ComposeActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
         }
     };
+
+    private void showEditDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        EditNameDialogFragment editNameDialogFragment = EditNameDialogFragment.newInstance("Some Title");
+        editNameDialogFragment.show(fm, "fragment_compose");
+    }
+
+
 
 }

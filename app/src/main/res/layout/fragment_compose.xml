@@ -1,0 +1,48 @@
+<!-- fragment_compose.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_name"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:layout_gravity="center" android:orientation="vertical"  >
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="33dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/transparent"
+        android:onClick="exitTweet"
+        android:text="x"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bTweet"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="82dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="1dp"
+        android:background="@drawable/tweet"
+        android:onClick="postTweet" />
+
+    <EditText
+        android:id="@+id/etUserTweet"
+        android:layout_width="306dp"
+        android:layout_height="334dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="What's happening?"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLength="140" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="84dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="220dp"
+        android:textColor="@color/dark_material_dark"
+        android:layout_marginTop="2dp"
+        android:text="0/140 characters" />
+
+
+</LinearLayout>

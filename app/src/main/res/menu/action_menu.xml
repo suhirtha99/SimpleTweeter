@@ -2,8 +2,6 @@
      such as `res/menu/menu_movies.xml`  -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
     <item
         android:id="@+id/miCompose"
         android:icon="@drawable/compose_button"
@@ -11,6 +9,13 @@
         android:title="Compose"
         android:onClick="composeTweet">
     </item>
+
+    <item
+        android:id="@+id/bProfile"
+        android:icon="@drawable/profile"
+        android:title="Item"
+        app:showAsAction="always" />
+
 
 
 </menu>

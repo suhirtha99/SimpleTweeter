@@ -182,6 +182,7 @@ public class TimelineActivity extends AppCompatActivity {
         });
     }
 
+
     public void composeTweet(MenuItem mi) {
         Intent i = new Intent(this, ComposeActivity.class);
         startActivityForResult(i, 20);

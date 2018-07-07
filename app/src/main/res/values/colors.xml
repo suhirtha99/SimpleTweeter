@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="twitterBlue">#1dcaff</color>
     <color name="primary_material_dark">#03a9f4</color>
     <color name="accent_material_light">#0091ea</color>
     <color name="primary_dark_material_dark">#026dd1</color>
+    <color name="material_dark">#03a9f4</color>
+    <color name="material_light">#0091ea</color>
+    <color name="dark_material_dark">#026dd1</color>
+    <color name="light_gray">#5e6c78</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 </resources>
